@@ -22,14 +22,13 @@ RUN echo "LoadModule php5_module /usr/lib/apache2/modules/libphp5.so" >> /etc/ap
 RUN echo "AddType application/x-httpd-php .php" >> /etc/apache2/apache2.conf
 RUN echo "AddType application/x-httpd-php-source .phps" >> /etc/apache2/apache2.conf
 
-RUN wget http://wordpress.org/Wordpress.tar.gz
-RUN tar xzvf Wordpress.tar.gz wordpress
-RUN cd wordpress
+RUN wget http://wordpress.org/wordpress.tar.gz
+RUN tar xzvf wordpress.tar.gz
 
 #RUN sudo rsync -avz . /var/www/html
 RUN cp -r wordpress/* /var/www/html
-RUN cp /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
 
+COPY wp-config.php /var/www/html/wp-config.php
 
 RUN sed -i "s/database_name_here/wordpress/g" /var/www/html/wp-config.php
 RUN sed -i "s/username_here/root/g" /var/www/html/wp-config.php
