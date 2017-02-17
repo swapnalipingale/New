@@ -37,6 +37,4 @@ RUN sed -i "s/localhost/127.0.0.1/g" /var/www/html/wp-config.php
 
 ADD supervisord.conf /etc/supervisor/supervisord.conf
 
-EXPOSE 3306 80
-
 CMD ["supervisord", "-c", "/etc/supervisor/supervisord.conf"]
