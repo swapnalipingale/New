@@ -22,8 +22,8 @@ RUN echo "LoadModule php5_module /usr/lib/apache2/modules/libphp5.so" >> /etc/ap
 RUN echo "AddType application/x-httpd-php .php" >> /etc/apache2/apache2.conf
 RUN echo "AddType application/x-httpd-php-source .phps" >> /etc/apache2/apache2.conf
 
-RUN wget http://wordpress.org/wordpress.tar.gz
-RUN tar xzvf wordpress.tar.gz
+RUN wget http://wordpress.org/latest.tar.gz
+RUN tar xzvf latest.tar.gz
 
 #RUN sudo rsync -avz . /var/www/html
 RUN cp -r wordpress/* /var/www/html
